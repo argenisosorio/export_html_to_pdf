@@ -1,0 +1,53 @@
+<html>
+  <head>
+  <title>My site</title>
+    <script src="libs/jquery-1.12.4.min.js" type="text/javascript"></script>
+    <script src="libs/jspdf.js"></script>
+    <script src="libs/jspdf.js"></script>
+  <meta charset="UTF-8">
+  </head>
+<script>
+  function pruebaDivAPdf() {
+    var pdf = new jsPDF('p', 'pt', 'letter');
+    source = $('#export')[0];
+
+    specialElementHandlers = {
+      '#bypassme': function (element, renderer) {
+        return true
+      }
+    };
+    margins = {
+      top: 40,
+      bottom: 60,
+      left: 40,
+      width: 522
+    };
+
+    pdf.fromHTML(
+      source, 
+      margins.left, // x coord
+      margins.top, { // y coord
+        'width': margins.width, 
+        'elementHandlers': specialElementHandlers
+      },
+
+      function (dispose) {
+        pdf.save('file.pdf');
+      }, margins
+    );
+  }
+</script>
+<body>
+  <div id="export">
+    <h1>Source Code</h1>
+    <p align="justify">
+      Source Code is a 2011 American-French science fiction thriller film directed by Duncan Jones, produced by Mark Gordon, Jordan Wynn, and Philippe Rousselet, and written by Ben Ripley. It stars Jake Gyllenhaal as a U.S. Army captain who is sent into a computed reality to find a bomber; additionally starring Michelle Monaghan, Vera Farmiga, and Jeffrey Wright. The film had its world premiere on March 11, 2011 at South by Southwest,[4] and was released by Summit Entertainment on April 1, 2011 in North America and Europe.
+    </p>
+    <p align="justify">
+      The film received acclaim from critics upon its release and became a box office success, grossing over $147.3 million worldwide.[3][5] Plans for a television adaptation at CBS were announced shortly after the film was released. However, these plans were scrapped in December 2014 in favor of a film sequel. The sequel is in development with Mark Gordon returning as producer and Anna Foerster added as director.
+    </p>
+  </div>
+  <br />
+  <a href="javascript:pruebaDivAPdf()" class="button">Export PDF</a>
+</body>
+</html>
