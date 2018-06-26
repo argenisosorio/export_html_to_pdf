@@ -7,6 +7,13 @@
   </head>
 <script>
   function pruebaDivAPdf() {
+    /*
+    jsPDF(orientation, unit, format) Creates new jsPDF document object
+    instance Parameters:
+    -Orientation One of "portrait" or "landscape" (or shortcuts "p" (Default), "l")
+    -Unit Measurement unit to be used when coordinates are specified. One of "pt" (points), "mm" (Default), "cm", "in"
+    -Format One of 'a3', 'a4' (Default),'a5' ,'letter' ,'legal'
+    */
     var pdf = new jsPDF('p', 'pt', 'letter');
     source = $('#export')[0];
 
