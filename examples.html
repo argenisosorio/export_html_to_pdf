@@ -1,0 +1,9 @@
+<!-- Export a simple Hello World -->
+<script type="text/javascript">
+function pruebaDivAPdf() {
+  var pdf = new jsPDF();
+  pdf.text(30, 30, 'Hello world!');
+  pdf.save('hello_world.pdf');
+}
+</script>
+<a href="javascript:pruebaDivAPdf()" class="button">Export PDF</a>
